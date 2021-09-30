@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class UserAccount(models.Model):
@@ -26,7 +25,4 @@ class UserAccount(models.Model):
     )
     modified_at = models.DateTimeField(
         'Modified At', blank=True, auto_now=True
-    )
-    user = models.ForeignKey(
-        User, related_name='user', on_delete=models.CASCADE, null=True, db_index=True
     )
