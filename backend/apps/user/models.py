@@ -6,19 +6,19 @@ class UserAccount(models.Model):
         db_table = 'userdb'
 
     username = models.CharField(
-        'Username', max_length=50, blank=False, unique=True, db_index=True
+        'Username', max_length=50, blank=False, null=False, unique=True, db_index=True
     )
     password = models.CharField(
-        'Password', max_length=500, blank=False, db_index=True
+        'Password', max_length=500, blank=False, null=False, db_index=True
     )
     email = models.EmailField(
-        'Email', max_length=254, blank=False, db_index=True
+        'Email', max_length=254, blank=False, null=False, db_index=True
     )
     token = models.CharField(
-        'Token', max_length=500
+        'Token', max_length=500, blank=True, null=True, db_index=True
     )
     token_expires_at = models.DateTimeField(
-        'Token Expires At', blank=True
+        'Token Expires At', blank=True, null=True
     )
     created_at = models.DateTimeField(
         'Created At', blank=True, auto_now_add=True
