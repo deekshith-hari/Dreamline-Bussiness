@@ -1,100 +1,796 @@
-/*
-Common
-************************************/
+* {
+  box-sizing: border-box;
+}
 
-html,
 body {
-  height: 100%;
-  font-family: sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  color: #264f58;
 }
 
-.content {
-  width: 600px;
-  height: 100%;
-  margin: 0 auto;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-}
-
-@media screen and (max-width: 500px) {
-}
-
-/*
-Posts
-************************************/
-
-.post_form {
-  padding: 20px 40px;
-  border-bottom: 1px solid #ccc;
-}
-
-.post_form input {
-  width: 70%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.post_form textarea {
-  width: 70%;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.posts ul {
-  padding: 0;
-}
-
-.posts li {
-  position: relative;
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  padding: 20px 40px;
-  list-style: none;
-}
-
-.posts li .menu_icon {
-  width: 20px;
-  position: absolute;
-  right: 30px;
-  top: 18px;
-}
-
-.posts li .menu {
-  position: absolute;
-  top: 40px;
-  right: 15px;
-  border: 1px solid #ccc;
-  background-color: white;
-  padding: 10px 15px;
-  font-size: 13px;
-  border-radius: 3px;
-}
-
-.posts li img {
-  width: 100%;
-}
-
-.posts li .menu a {
+a {
   text-decoration: none;
+  color: #9dd9d7;
 }
 
-.posts li .logo {
-  flex-basis: 15%;
+.header {
+  background-color: #264f58;
+  color: #9dd9d7;
 }
 
-.posts li .logo img {
-  width: 60%;
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.posts li .name_body {
-  flex-basis: 85%;
+.flex-header .mb-0 {
+  margin: auto 25px;
+  font-size: 35px;
+  font-weight: bold;
+  mix-blend-mode: color-burn;
 }
 
-.posts li .name_body .name {
+.flex-header .mb-1 div {
+  display: inline-block;
+  margin: auto 25px;
+}
+
+.flex-header .mb-1 .next {
+  display: none;
+}
+
+.back {
+  color: #264f58;
+  font-size: 30px;
+}
+
+/***************************************** Index.html *******************************************
+/
+/
+/
+/
+/
+/
+*/
+
+/*/ //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+main
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.main {
+  background-image: url("img/Group 41.png");
+  background-repeat: no-repeat;
+  background-position: 125% 100%;
+  background-color: #9dd9d7;
+}
+
+.flex-main {
+  display: flex;
+}
+
+.flex-main .main-1 {
+  width: 50%;
+  margin-top: 10%;
+  margin-left: 50px;
+}
+
+.main-1 .title {
+  width: 80%;
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+.main-1 .description {
+  width: 80%;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+.main-1 .generate {
+  margin: 180px 20px;
+}
+
+.generate .make-image {
+  background-color: #264f58;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 40px;
+  font-weight: 600;
+  box-shadow: 1px 6px 10px 0px #000000a6;
+}
+
+.flex-main .main-2 {
+  margin-left: 20px;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+footer
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.footer {
+  background-image: url("img/Group 44.png");
+  background-position: 70% 10%;
+}
+
+.footer hr {
+  border: 1px solid #264f58;
+  margin: auto 10px;
+}
+
+.footer-1 {
+  margin: 5%;
+}
+
+.footer-1 .title {
+  margin: 10px;
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+.footer-1 .title p {
+  width: 90%;
+  margin: auto;
+}
+
+.footer-2 .logo-1 {
+  margin: auto;
+  width: 50%;
+  position: relative;
+  border-radius: 10px;
+}
+
+.footer-2 .logo-2 {
+  width: 25%;
+  position: relative;
+  left: 60%;
+  bottom: 10em;
+  border-radius: 10px;
+}
+
+.footer-2 .logo-3 {
+  width: 30%;
+  position: relative;
+  bottom: 27em;
+  left: 8em;
+  border-radius: 10px;
+}
+
+.image-header {
+  position: absolute;
+  color: white;
+  width: 100%;
+  border-radius: 10px;
+  background-image: linear-gradient(#264f58, transparent);
+  height: 40%;
+}
+
+.image-header .logo {
+  margin: 5px 15px 0;
+  line-height: 0;
+}
+
+.logo img {
+  height: 100%;
+}
+
+.image-header .business {
+  margin: 0 15px;
+  line-height: 0;
+}
+
+.image-header .business hr {
+  width: 8em;
+  border: 1px solid #d5d5d5;
+  margin: 0 0 -6px;
+}
+
+p.name {
+  font-size: 90%;
   font-weight: bold;
 }
 
-.posts li .name_body .datetime {
-  color: gray;
+p.occupation {
+  font-size: 100%;
+  font-weight: 600;
+}
+
+p.brand {
+  font-size: 100%;
+  font-weight: 600;
+}
+
+.image img {
+  width: 100%;
+  box-shadow: #000000a6 1px 6px 15px 0px;
+  border-radius: 10px;
+}
+
+.try-now {
+  margin: 0 35%;
+  position: relative;
+  bottom: 10em;
+}
+
+.try-now .make-image {
+  margin: auto;
+  background-color: #264f58;
+  border: none;
+  color: #9dd9d7;
+  padding: 25px 90px;
+  border-radius: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  box-shadow: 1px 6px 10px 0px #000000a6;
+}
+
+.footer-3 {
+  font-size: 29px;
+  margin: auto 30px;
+}
+
+.footer-3 p {
+  margin: 0;
+}
+
+/***************************************** Generate *******************************************
+/
+/
+/
+/
+/
+/
+*/
+
+#generate {
+  background-image: url("img/gen - backgrd.png");
+  background-repeat: no-repeat;
+  background-position: 35% 43%;
+}
+
+#generate .step-1 > .icon {
+  box-shadow: #000000a6 1px 6px 15px 0px;
+}
+
+#generate .step-2 > .icon,
+#generate .step-3 > .icon {
+  opacity: 50%;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+main
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.flex-1 {
+  display: flex;
+  margin: auto 33%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-1 img {
+  width: 3em;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.step p {
+  font-size: 15px;
+}
+
+.choose {
+  margin: 50px 0;
+  font-size: 55px;
+  font-weight: 600;
+}
+
+.choose p {
+  width: 50%;
+  margin: auto 28%;
+}
+
+.flex-2 {
+  display: flex;
+  overflow: scroll hidden;
+}
+
+.bgd {
+  margin: 15px;
+}
+
+.bgd img:hover {
+  outline: 15px solid #8dc7c5;
+}
+
+.selected {
+  border: 15px solid #8dc7c5;
+  padding: 167px 16rem;
+  position: absolute;
+  left: 28em;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+footer
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.btn-1 {
+  margin: 65px 45%;
+}
+
+.btn-1 .next {
+  background-color: #264f58;
+  padding: 10px 60px;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  box-shadow: 1px 6px 10px 0px #000000a6;
+}
+
+.btn-2 {
+  margin: auto 48%;
+}
+
+/***************************************** Logo *******************************************
+/
+/
+/
+/
+/
+/
+*/
+
+#logo {
+  background-image: url("img/logo-bgd.png");
+  background-repeat: no-repeat;
+  background-position: 42% 45%;
+}
+
+#logo .step-1 > .icon,
+#logo .step-3 > .icon {
+  opacity: 50%;
+}
+
+#logo .step-2 > .icon {
+  box-shadow: #000000a6 1px 6px 15px 0px;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+main
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.instruct p {
+  margin: auto 38%;
+}
+
+.addLogo {
+  border: 3px solid #264f58;
+  width: 12%;
+  margin: 50px auto 45px;
+}
+
+.addLogo img {
+  width: 35%;
+  margin: auto 33%;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+footer
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  margin: 30px auto 0;
+}
+
+.btn .btn-1,
+.btn .btn-2 {
+  margin: 0 0 10%;
+}
+
+.btn hr {
+  margin: 0 30px;
+  height: 2em;
+}
+
+.btn .btn-1 .next {
+  padding: 10px 20px;
+}
+
+/***************************************** Info *******************************************
+/
+/
+/
+/
+/
+/
+*/
+
+#info {
+  background-image: url("img/info-bgd.png");
+  background-repeat: no-repeat;
+  background-position: 55% 40%;
+}
+
+#info .step-1 > .icon,
+#info .step-2 > .icon {
+  opacity: 50%;
+}
+
+#info .step-3 > .icon {
+  box-shadow: #000000a6 1px 6px 15px 0px;
+  border-radius: 50%;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+main
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.instruct-info p {
+  margin: auto 41%;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #264f58;
+  max-width: fit-content;
+  margin: auto;
+  padding: 10px 20px;
+  font-size: 25px;
+}
+
+.infos > div {
+  margin: 10px;
+}
+
+.infos p {
+  margin: 5px;
+}
+
+.infos input {
+  font-size: 25px;
+  border-radius: 10px;
+  color: #264f58;
+  border: #264f58 2px solid;
+}
+
+.btn-add {
+  align-self: center;
+}
+
+.btn-add .next {
+  padding: 10px 35px;
+  background-color: #264f58;
+  font-size: 30px;
+  font-weight: 600;
+  box-shadow: 1px 6px 10px 0px #000000a6;
+  color: #9dd9d7;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+footer
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.btn-back {
+  margin: 20px 48% 0;
+}
+
+/***************************************** Mobile *******************************************
+/*****************************************
+/*****************************************
+/*****************************************
+/*****************************************
+/*****************************************
+/*****************************************
+******************************************/
+
+@media screen and (max-width: 500px) {
+  #home .flex-header .mb-1 .signup,
+  #generate .flex-header .mb-1 .next,
+  #logo .flex-header .mb-1 .next,
+  #info .flex-header .mb-1 .next {
+    display: inline-block;
+    font-weight: 600;
+  }
+
+  .back {
+    font-size: 20px;
+    padding: 0 15px;
+    font-weight: 600;
+  }
+
+  /***************************************** Index *******************************************
+  /
+  */
+
+  .main {
+    background-size: 100%;
+    background-position: 2em 100%;
+  }
+
+  .flex-header .mb-0 {
+    margin: auto 15px;
+    font-size: 20px;
+    font-weight: normal;
+    mix-blend-mode: normal;
+  }
+
+  .flex-header .mb-0 p > span {
+    font-weight: bold;
+  }
+
+  .flex-header .mb-1 div {
+    display: none;
+  }
+
+  .flex-main .main-1 {
+    width: 0;
+    margin: 0;
+  }
+
+  .main-1 .title {
+    width: 11em;
+    margin: 20px;
+    font-size: 30px;
+  }
+
+  .main-1 .description {
+    font-size: 18px;
+    width: 19em;
+    margin: 15px;
+  }
+
+  .main-1 .generate {
+    width: 15em;
+    margin: 12em 20px;
+    position: relative;
+    bottom: 10em;
+  }
+
+  .generate .make-image {
+    font-size: 15px;
+    border-radius: 30px;
+  }
+
+  .flex-main .main-2 {
+    display: none;
+  }
+
+  .footer {
+    background-image: url("img/mobile-bgd-1.png");
+    background-position: 50% 50%;
+    padding: 1px;
+  }
+
+  .footer-1 {
+    margin: 30px 15px;
+  }
+
+  .footer-1 .title {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .footer-1 .title p {
+    width: 100%;
+  }
+
+  .footer-2 .logo-1 {
+    width: 70%;
+  }
+
+  .image-header {
+    background-color: #264f581c;
+    background-image: none;
+    height: 50%;
+  }
+
+  .image-header .logo {
+    margin: 0 5px;
+    width: 50%;
+  }
+
+  .logo img {
+    width: 50%;
+  }
+
+  .image-header .business {
+    margin: 0 5px;
+  }
+
+  .image-header .business hr {
+    width: 3em;
+    border: 1px solid #ffffff;
+    margin: 0 0 5px;
+  }
+
+  p.name {
+    font-size: 6px;
+    margin: auto;
+  }
+
+  p.occupation,
+  p.brand {
+    font-size: 5px;
+  }
+
+  .footer-2 .logo-2 {
+    width: 35%;
+    left: 44%;
+    top: 2em;
+    z-index: 2;
+  }
+
+  .footer-2 .logo-3 {
+    width: 50%;
+    bottom: 7em;
+    left: 1em;
+  }
+
+  .try-now {
+    bottom: 3em;
+    margin: 40px 30%;
+  }
+
+  .try-now .make-image {
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 25px;
+  }
+
+  .footer-3 {
+    font-size: 15px;
+    margin: auto 15px;
+  }
+
+  .footer-3 p {
+    margin: 0 0 15px;
+  }
+
+  /***************************************** Generate *******************************************
+  /
+  */
+
+  #generate {
+    background-image: url("img/mobile-bgd-2.png");
+  }
+
+  .flex-1 {
+    margin: auto 20px;
+  }
+
+  .flex {
+    margin: 15px 0 0;
+  }
+
+  .step p {
+    font-size: 9px;
+  }
+
+  .flex-1 img {
+    width: 2em;
+  }
+
+  .step-1 > .icon {
+    border-radius: 5px;
+  }
+
+  .choose {
+    font-size: 25px;
+    margin: 40px 0;
+  }
+
+  .choose p {
+    width: 70%;
+    margin: auto;
+  }
+
+  .flex-2 {
+    display: grid;
+    grid-template-areas: "bgd bgd";
+    grid-row-gap: 10px;
+  }
+
+  .bgd {
+    margin: 0 10px;
+  }
+
+  .bgd img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #000000a6;
+  }
+
+  .btn-1 {
+    margin: 50px 40% 30px;
+  }
+
+  .btn-1 .next {
+    background-color: #264f58;
+    padding: 10px 20px;
+    font-size: 18px;
+    box-shadow: 0px 0px 5px 0px #000000a6;
+  }
+
+  .btn-2 {
+    margin: auto 40% 50px;
+  }
+
+  /***************************************** Logo *******************************************
+  /
+  */
+
+  #logo {
+    background-image: url("img/mobile-bgd-3.png");
+    background-position: 50% 20%;
+  }
+
+  .addLogo {
+    width: 50%;
+    border-radius: 5px;
+  }
+
+  .btn {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  .btn .btn-1,
+  .btn .btn-2 {
+    margin: 0 auto 25px;
+  }
+
+  /***************************************** Info *******************************************
+  /
+  */
+
+  #info {
+    background-image: url("img/mobile-bgd-3.png");
+    background-position: 53% 0%;
+  }
+
+  .infos {
+    margin: 0 auto;
+    padding: 5px 15px;
+    font-size: 20px;
+    border-radius: 5px;
+  }
+
+  .infos input {
+    font-size: 20px;
+  }
+
+  .btn-add .next {
+    padding: 10px 25px;
+    font-size: 15px;
+  }
+
+  .btn-back {
+    margin: 20px 39% 50px;
+  }
 }
