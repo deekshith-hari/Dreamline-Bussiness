@@ -15,7 +15,7 @@ import django_heroku
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.posts',
     'apps.user',
+    'apps.user_backgrounds',
+    'apps.background_images',
     'cloudinary',
     'django_filters',
 ]
@@ -150,6 +152,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads', 'images')
+MEDIA_URL = 'uploads/images/' 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -164,5 +169,7 @@ cloudinary.config(
 )
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 21
 }

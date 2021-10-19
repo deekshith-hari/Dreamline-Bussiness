@@ -1,0 +1,12 @@
+POST http://127.0.0.1:8000/user-backgrounds/add/ HTTP/1.1
+Content-Type: multipart/form-data; boundary=---WebKitFormBoundary7MA4YWxkTrZu0gW
+Authorization: aa9115a95568ca01a2d22b03c6b732f4f77f185a7324bd5b792db6fa9b60
+
+{
+    "username":"Deekshith",
+    "company_name": "Tech.I.S",
+    "company_logo": "/Users/musubimanagement/Desktop/projects/groupdevelopment/profile-user.png",
+    "role": "Backend Developer",
+    "background_id": 1,
+
+}

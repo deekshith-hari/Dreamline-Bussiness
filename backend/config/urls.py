@@ -15,9 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .settings import DEBUG, MEDIA_ROOT, MEDIA_URL
+from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('posts/', include('apps.posts.urls')),
     path('user/', include('apps.user.urls')),
+    path('background-images/', include('apps.background_images.urls')),
+    path('user-backgrounds/', include('apps.user_backgrounds.urls')),
 ]
+
+if DEBUG:
+    urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

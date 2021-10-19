@@ -1,7 +1,10 @@
-const initialState = { 
-    posts: {
-        list: []
-    }
+const initialState = {
+  posts: {
+    list: [],
+  },
+  bimages: {
+    list: [],
+  },
 };
 
-export default initialState
+export default initialState;
