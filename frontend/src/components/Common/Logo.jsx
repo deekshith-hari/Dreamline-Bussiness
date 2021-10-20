@@ -16,6 +16,7 @@ function Logo({ setStep, setPreviewImage, setImage, previewImage }) {
     const objectUrl = URL.createObjectURL(file);
     setPreviewImage(objectUrl);
     setImage(file);
+    console.log(file);
   };
 
   return (
