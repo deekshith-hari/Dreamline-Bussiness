@@ -52,7 +52,7 @@ def generate_background_color(background_image):
     # Loop through gradian_height to draw line with Gradian Transparent Color
     for i in range(gradian_height):
         #Maximum Transparent Alpha
-        alpha = MAX_TRANSPARENT_ALPHA 
+        alpha = MAX_TRANSPARENT_ALPHA
 
         # Make sure start line is with Maximum Transparent Alpha
         if i > 0:

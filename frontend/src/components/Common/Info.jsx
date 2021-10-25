@@ -35,7 +35,7 @@ function Info({ setStep, image, backgroundId, previewImage }) {
   };
   useEffect(() => {
     console.log(background_id);
-    console.log(company_logo.name);
+    console.log(company_logo);
     console.log(name);
   }, []);
 
