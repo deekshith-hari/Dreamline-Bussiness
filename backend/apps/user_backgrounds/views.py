@@ -10,7 +10,6 @@ from secrets import token_hex
 from rest_framework.response import Response
 from django.core.files.storage import FileSystemStorage
 from rest_framework import generics
-from apps.user.mixins import CustomLoginRequiredMixin
 
 
 X_DEFAULT_VALUE = 12
@@ -52,7 +51,7 @@ def generate_background_color(background_image):
     # Loop through gradian_height to draw line with Gradian Transparent Color
     for i in range(gradian_height):
         #Maximum Transparent Alpha
-        alpha = MAX_TRANSPARENT_ALPHA
+        alpha = MAX_TRANSPARENT_ALPHA 
 
         # Make sure start line is with Maximum Transparent Alpha
         if i > 0:
@@ -138,6 +137,6 @@ class UserBackgroundAdd(generics.CreateAPIView):
         # Response data as Dict
         return Response(serializer.data)
         
-class UserBackgroundList(CustomLoginRequiredMixin, generics.ListAPIView):
+class UserBackgroundList(generics.ListAPIView):
     queryset = UserBackground.objects.order_by('-id').all()
     serializer_class = UserBackgroundSerializer

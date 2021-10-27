@@ -1,11 +1,14 @@
 import React, { useState, useRef } from "react";
-
-import Header from "./Header";
 import Steps from "./Steps";
 
 import Plus_img from "../../assets/img/+.png";
 
-function Logo({ setStep, setPreviewImage, setImage, previewImage }) {
+function Logo({
+  setStep,
+  previewCompanyLogoUrl,
+  setInputCompanyLogo,
+  setPreviewCompanyLogoUrl,
+}) {
   const inputFile = useRef(null);
   const onButtonClick = () => {
     inputFile.current.click();
@@ -14,8 +17,8 @@ function Logo({ setStep, setPreviewImage, setImage, previewImage }) {
   const inputImage = (event) => {
     const file = event.target.files[0];
     const objectUrl = URL.createObjectURL(file);
-    setPreviewImage(objectUrl);
-    setImage(file);
+    setPreviewCompanyLogoUrl(objectUrl);
+    setInputCompanyLogo(file);
     console.log(file);
   };
 
@@ -35,7 +38,7 @@ function Logo({ setStep, setPreviewImage, setImage, previewImage }) {
             onChange={inputImage}
           />
           <img
-            src={previewImage ? previewImage : Plus_img}
+            src={previewCompanyLogoUrl ? previewCompanyLogoUrl : Plus_img}
             alt=""
             onClick={onButtonClick}
             name="image"

@@ -1,5 +1,4 @@
 import React from "react";
-
 import Oracle from "../assets/img/Oracle-logo.png";
 import Img1 from "../assets/img/Mask Group 37.png";
 import Tesla from "../assets/img/Tesla_logo.png";

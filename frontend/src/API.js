@@ -92,14 +92,19 @@ export default class API {
   // /////////////////////////////////////////////////////////////
 
   postUserbackground = async (params = {}) => {
-    const userinfo = await api
-      .post("/user-backgrounds/add/", params)
+    const formData = new FormData();
+
+    for (const key in params) {
+      formData.append(key, params[key]);
+    }
+
+    return api
+      .post("/user-backgrounds/add/", formData)
       .then((response) => {
         return response.data;
       })
       .catch((error) => {
         throw new Error(error);
       });
-    return userinfo;
   };
 }

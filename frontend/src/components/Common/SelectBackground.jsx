@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBimages } from "../../reducks/backgroundimages/operations";
 import { getBimages } from "../../reducks/backgroundimages/selectors";
 
-export default function SelectBackground({ setStep, setBackgroundId }) {
+export default function SelectBackground({
+  setStep,
+  inputBackgroundId,
+  setInputBackgroundId,
+}) {
   const selector = useSelector((state) => state);
   const dispatch = useDispatch();
   const bimages = getBimages(selector);
@@ -29,7 +33,7 @@ export default function SelectBackground({ setStep, setBackgroundId }) {
                 <img
                   src={image.image}
                   alt=""
-                  onClick={() => setBackgroundId(image.id)}
+                  onClick={() => setInputBackgroundId(image.id)}
                 />
               </div>
             ))}

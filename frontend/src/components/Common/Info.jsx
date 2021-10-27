@@ -1,49 +1,31 @@
 import React, { useState, useEffect } from "react";
 import Steps from "./Steps";
-import API from "../../API";
 
-const api = new API();
-
-function Info({ setStep, image, backgroundId, previewImage }) {
-  const [name, setName] = useState(""),
-    [role, setRole] = useState(""),
-    [company, setCompany] = useState("");
-  const company_logo = image;
-  const background_id = backgroundId;
+function Info({
+  setStep,
+  inputUsername,
+  setInputUsername,
+  inputCompanyName,
+  setInputCompanyName,
+  submitToGenerate,
+  setInputRole,
+}) {
   const inputName = (e) => {
-    setName(e.target.value);
-  };
-
-  const inputRole = (e) => {
-    setRole(e.target.value);
+    setInputUsername(e.target.value);
   };
 
   const inputCompany = (e) => {
-    setCompany(e.target.value);
+    setInputCompanyName(e.target.value);
   };
 
-  const submitGenerate = (e) => {
-    let params = {
-      username: name,
-      company_name: company,
-      company_logo: company_logo,
-      role: role,
-      background_id: background_id,
-    };
-    api.postUserbackground(params);
-    e.preventDefault();
+  const inputRole = (e) => {
+    setInputRole(e.target.value);
   };
-  useEffect(() => {
-    console.log(background_id);
-    console.log(company_logo);
-    console.log(name);
-  }, []);
 
   return (
     <div id="info">
       <main>
         <Steps />
-
         <div class="choose instruct instruct-info">
           <p>Add your Info</p>
         </div>
@@ -65,7 +47,7 @@ function Info({ setStep, image, backgroundId, previewImage }) {
               class="next"
               value="Add"
               type="submit"
-              onClick={submitGenerate}
+              onClick={submitToGenerate}
             />
           </div>
         </form>
@@ -81,5 +63,4 @@ function Info({ setStep, image, backgroundId, previewImage }) {
     </div>
   );
 }
-
 export default Info;
