@@ -1,13 +1,15 @@
 from django.db.models.deletion import CASCADE
 from apps.background_images.models import BackgroundImage
 from django.db import models
+from apps.user.models import UserAccount
 
 
 class UserBackground(models.Model):
     class Meta(object):
         db_table = 'user_background'
-        
-
+    user = models.ForeignKey(
+        UserAccount, on_delete=models.CASCADE
+    )
     username = models.CharField(
         'User Name', blank=False, null=False, max_length=100, db_index=True
     )

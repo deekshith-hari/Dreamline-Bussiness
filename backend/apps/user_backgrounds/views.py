@@ -65,7 +65,7 @@ def generate_background_color(background_image):
 
     return draw
 
-class UserBackgroundAdd(generics.CreateAPIView):
+class UserBackgroundAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
     queryset = UserBackground.objects.order_by('-id').all()
     serializer_class = UserBackgroundSerializer
 
@@ -121,6 +121,7 @@ class UserBackgroundAdd(generics.CreateAPIView):
         filename = get_filename(generated_background_image.format)
 
         new_user_background = UserBackground.objects.create(
+            user = request.login_user.id,
             username=request.data['username'],
             company_name=request.data['company_name'],
             role=request.data['role'],
@@ -143,5 +144,5 @@ class UserBackgroundList(CustomLoginRequiredMixin, generics.ListAPIView):
     serializer_class = UserBackgroundSerializer
 
     def get(self, request, *args, **kwargs):
-        self.queryset=UserBackground.objects.order_by('-created_at').filter(username=request.login_user.username)
+        self.queryset=UserBackground.objects.order_by('-created_at').filter(user=request.login_user)
         return self.list(request, *args, **kwargs)
