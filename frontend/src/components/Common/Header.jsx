@@ -20,7 +20,7 @@ function Header() {
             <a href="/signup">Sign up</a>
           </div>
           <div class="mycard">
-            <a href="/">My card</a>
+            <a href="/userbackground">My card</a>
           </div>
         </div>
       </nav>

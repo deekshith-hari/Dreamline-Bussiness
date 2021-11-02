@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
-import group33 from "../assets/img/Mask Group 33.png";
-import group44 from "../assets/img/Mask Group 34.png";
-import addbtn from "../assets/img/+.svg";
 import Header from "../components/Common/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { getUimages } from "../reducks/userbackground/selectors";
 import { fetchUimages } from "../reducks/userbackground/operations";
-import { getUser } from "../reducks/userAuth/selectors";
 
 function YourBackground() {
   const selector = useSelector((state) => state);
@@ -40,12 +36,6 @@ function YourBackground() {
                     </div>
                   </div>
                 ))}
-
-              <div class="card">
-                <div class="add-btn">
-                  <img src={addbtn}></img>
-                </div>
-              </div>
             </div>
           </main>
         </div>
