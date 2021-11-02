@@ -5,16 +5,19 @@ import addbtn from "../assets/img/+.svg";
 import Header from "../components/Common/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { getUimages } from "../reducks/userbackground/selectors";
-import { fetchBimages } from "../reducks/userbackground/operations";
+import { fetchUimages } from "../reducks/userbackground/operations";
+import { getUser } from "../reducks/userAuth/selectors";
 
 function YourBackground() {
   const selector = useSelector((state) => state);
   const dispatch = useDispatch();
   const uimages = getUimages(selector);
+  const user = JSON.parse(localStorage.getItem("LOGIN_USER_KEY"));
   useEffect(() => {
-    dispatch(fetchBimages());
+    dispatch(fetchUimages(user.token));
     console.log("test");
     console.log(uimages);
+    console.log(user);
   }, []);
   return (
     <>
@@ -27,13 +30,16 @@ function YourBackground() {
             </div>
 
             <div class="scrolling-wrapper">
-              <div class="card">
-                <img src={group33} alt=""></img>
-                <div class="link-panel">
-                  <a id="preview-btn">Preview | </a>
-                  <button class="DL-btn">Download</button>
-                </div>
-              </div>
+              {uimages["results"] &&
+                uimages["results"].map((image) => (
+                  <div class="card">
+                    <img src={image.generated_background} alt=""></img>
+                    <div class="link-panel">
+                      <a id="preview-btn">Preview | </a>
+                      <button class="DL-btn">Download</button>
+                    </div>
+                  </div>
+                ))}
 
               <div class="card">
                 <div class="add-btn">

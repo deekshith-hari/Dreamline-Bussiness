@@ -3,7 +3,7 @@ import { fetchUimagesAction } from "./actions";
 
 const api = new API();
 
-export const fetchBimages = () => {
+export const fetchUimages = () => {
   return async (dispatch) => {
     return api
       .getUserbackground()
