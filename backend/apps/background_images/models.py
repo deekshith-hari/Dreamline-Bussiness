@@ -11,4 +11,5 @@ class BackgroundImage(models.Model):
         'image'
     )
 
-    
+    def __str__(self):
+        return self.name

@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-
+import { useDispatch } from "react-redux";
 import Header from "../components/Common/Header";
 import SelectBackground from "../components/Common/SelectBackground";
 import Logo from "../components/Common/Logo";
 import Info from "../components/Common/Info";
 import API from "../API";
+import { push } from "connected-react-router";
 
 const api = new API();
 
 export default function Generate() {
   const [step, setStep] = useState(1);
-
+  const dispatch = useDispatch();
   const [inputBackgroundId, setInputBackgroundId] = useState(null);
   const [inputCompanyLogo, setInputCompanyLogo] = useState(null);
   const [inputUsername, setInputUsername] = useState(null);
@@ -27,7 +28,14 @@ export default function Generate() {
       role: inputRole,
       background_id: inputBackgroundId,
     };
-    api.postUserbackground(params);
+    api
+      .postUserbackground(params)
+      .then((response) => {
+        dispatch(push("/userbackground"));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     e.preventDefault();
   };
 

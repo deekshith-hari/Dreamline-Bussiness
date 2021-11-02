@@ -1,4 +1,4 @@
 GET http://127.0.0.1:8000/user-backgrounds/ HTTP/1.1
 Content-Type: application/json
-Authorization: ed06c9bba791943a6616c96d2b4af3f80e797ac6e6ad7dc463bb5f6a26ef
+Authorization: 84bb8851994b1660bd0041c62f0e7c71704c88ab7ab948fe22508a43d0f5
 
