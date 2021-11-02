@@ -8,6 +8,12 @@ const initialState = {
   uimages: {
     list: [],
   },
+  user: {
+    username: "",
+    email: "",
+    token: "",
+    token_expires_at: "",
+  },
 };
 
 export default initialState;

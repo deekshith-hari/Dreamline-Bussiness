@@ -21,10 +21,10 @@ function Home() {
               <a href="/generate">Next</a>
             </div>
             <div class="signin">
-              <a href="/">Sign in</a>
+              <a href="/signin">Sign in</a>
             </div>
             <div class="signup">
-              <a href="/">Sign up</a>
+              <a href="/signup">Sign up</a>
             </div>
             <div class="mycard">
               <a href="/">My card</a>

@@ -10,12 +10,14 @@ import thunk from "redux-thunk";
 import { PostsReducer } from "../posts/reducers";
 import { BimagesReducer } from "../backgroundimages/reducers";
 import { UimagesReducer } from "../userbackground/reducers";
+import { UsersReducer } from "../userAuth/reducers";
 
 export default function createStore(history) {
   return reduxCreateStore(
     combineReducers({
       router: connectRouter(history),
       posts: PostsReducer,
+      user: UsersReducer,
       bimages: BimagesReducer,
       uimages: UimagesReducer,
     }),

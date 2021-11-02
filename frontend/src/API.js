@@ -71,6 +71,40 @@ export default class API {
       });
     return response;
   };
+  // ///////////////////////////////////////////////////////////
+  // Users
+  // //////////////////////////////////////////////////////////
+
+  signIn = async (email, password) => {
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    const user = await api
+      .post("/user/signin/", formData)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+    return user;
+  };
+
+  signUp = async (username, email, password) => {
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+    const newUser = await api
+      .post("/user/signup/", formData)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+    return newUser;
+  };
 
   //   /////////////////////////////////////////////////////////
   // Background Image

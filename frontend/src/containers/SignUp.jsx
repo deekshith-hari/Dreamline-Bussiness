@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { push } from "connected-react-router";
 
-import { signIn } from "../reducks/userAuth/operations";
+import { signUp } from "../reducks/userAuth/operations";
 
-function SignIn() {
+function SignUp() {
   const dispatch = useDispatch();
 
   const closeButton = () => {
     dispatch(push("/"));
   };
 
-  const [email, setEmail] = useState(""),
+  const [username, setUserName] = useState(""),
+    [email, setEmail] = useState(""),
     [password, setPassword] = useState("");
+
+  const inputUserName = (event) => {
+    setUserName(event.target.value);
+  };
 
   const inputEmail = (event) => {
     setEmail(event.target.value);
@@ -22,9 +27,10 @@ function SignIn() {
     setPassword(event.target.value);
   };
 
-  const submitButton = (e) => {
+  const signUpButton = (e) => {
     e.preventDefault();
-    dispatch(signIn(email, password));
+    dispatch(signUp(username, email, password));
+    setUserName("");
     setEmail("");
     setPassword("");
   };
@@ -32,9 +38,9 @@ function SignIn() {
   return (
     <div className="yb-body">
       <section>
-        <div className="sign-in">
+        <div className="sign-up">
           <div className="sign-up-2">
-            <div className="close-btn-sign-in" onClick={closeButton}>
+            <div className="close-btn" onClick={closeButton}>
               +
             </div>
             <div className="title">
@@ -42,10 +48,16 @@ function SignIn() {
               <p class="title-3">digital</p>
             </div>
             <div className="sign-up-3">
-              <p>Sign in</p>
+              <p>Sign up</p>
             </div>
-
-            <form action="" onSubmit={submitButton}>
+            <form action="/">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="User Name"
+                onChange={inputUserName}
+              />
               <input
                 type="text"
                 name="email"
@@ -60,12 +72,15 @@ function SignIn() {
                 placeholder="Password"
                 onChange={inputPassword}
               />
-              <button type="submit"> Log In </button>
+              <button type="submit" name="signup" onClick={signUpButton}>
+                {" "}
+                Sign Up
+              </button>
             </form>
             <p className="members">
-              New user?{" "}
-              <a id="sign-up-btn" href="/signup">
-                Sign Up.
+              Already a Member?{" "}
+              <a id="sign-in-redirect" href="/signin">
+                Sign In.
               </a>
             </p>
           </div>
@@ -75,4 +90,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignUp;

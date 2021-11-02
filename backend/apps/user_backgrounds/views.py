@@ -121,7 +121,7 @@ class UserBackgroundAdd(CustomLoginRequiredMixin, generics.CreateAPIView):
         filename = get_filename(generated_background_image.format)
 
         new_user_background = UserBackground.objects.create(
-            user = request.login_user.id,
+            user = request.login_user,
             username=request.data['username'],
             company_name=request.data['company_name'],
             role=request.data['role'],
