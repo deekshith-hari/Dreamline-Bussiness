@@ -5,6 +5,9 @@ const initialState = {
   bimages: {
     list: [],
   },
+  uimages: {
+    list: [],
+  },
 };
 
 export default initialState;

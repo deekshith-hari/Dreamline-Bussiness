@@ -107,4 +107,15 @@ export default class API {
         throw new Error(error);
       });
   };
+
+  getUserbackground = async () => {
+    return api
+      .get("/user-backgrounds/")
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+  };
 }

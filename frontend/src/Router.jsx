@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router";
 import Home from "./containers/Home";
 import Generate from "./containers/Generate";
 import Signin from "./containers/Signin";
+import YourBackground from "./containers/YourBackground";
 
 const Router = () => {
   return (
@@ -10,7 +11,7 @@ const Router = () => {
       <Switch>
         <Route exact path={"/"} component={Home} />
         <Route exact path={"/generate"} component={Generate} />
-        <Route exact path={"/signin"} component={Signin} />
+        <Route exact path={"/userbackground"} component={YourBackground} />
       </Switch>
     </>
   );

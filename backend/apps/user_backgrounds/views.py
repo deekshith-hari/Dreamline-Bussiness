@@ -10,6 +10,7 @@ from secrets import token_hex
 from rest_framework.response import Response
 from django.core.files.storage import FileSystemStorage
 from rest_framework import generics
+from apps.user.mixins import CustomLoginRequiredMixin
 
 
 X_DEFAULT_VALUE = 12
@@ -137,6 +138,10 @@ class UserBackgroundAdd(generics.CreateAPIView):
         # Response data as Dict
         return Response(serializer.data)
         
-class UserBackgroundList(generics.ListAPIView):
-    queryset = UserBackground.objects.order_by('-id').all()
+class UserBackgroundList(CustomLoginRequiredMixin, generics.ListAPIView):
+    queryset = UserBackground.objects.all()
     serializer_class = UserBackgroundSerializer
+
+    def get(self, request, *args, **kwargs):
+        self.queryset=UserBackground.objects.order_by('-created_at').filter(username=request.login_user.username)
+        return self.list(request, *args, **kwargs)

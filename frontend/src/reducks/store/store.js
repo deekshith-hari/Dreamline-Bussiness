@@ -9,6 +9,7 @@ import thunk from "redux-thunk";
 
 import { PostsReducer } from "../posts/reducers";
 import { BimagesReducer } from "../backgroundimages/reducers";
+import { UimagesReducer } from "../userbackground/reducers";
 
 export default function createStore(history) {
   return reduxCreateStore(
@@ -16,6 +17,7 @@ export default function createStore(history) {
       router: connectRouter(history),
       posts: PostsReducer,
       bimages: BimagesReducer,
+      uimages: UimagesReducer,
     }),
     compose(
       applyMiddleware(routerMiddleware(history), thunk)
