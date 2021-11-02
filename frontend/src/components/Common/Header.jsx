@@ -11,13 +11,16 @@ function Header() {
         </div>
         <div class="mb-1">
           <div class="next">
-            <a href="/">Next</a>
+            <a href="/generate">Next</a>
+          </div>
+          <div class="signin">
+            <a href="/signin">Sign in</a>
           </div>
           <div class="signup">
-            <a href="/">Sign up</a>
+            <a href="/signup">Sign up</a>
           </div>
           <div class="mycard">
-            <a href="/">Create card</a>
+            <a href="/">My card</a>
           </div>
         </div>
       </nav>
