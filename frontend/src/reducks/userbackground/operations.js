@@ -6,7 +6,7 @@ const api = new API();
 export const fetchUimages = () => {
   return async (dispatch) => {
     return api
-      .getUserbackground()
+      .getUserbackgrounds()
       .then((uimages) => {
         dispatch(fetchUimagesAction(uimages));
       })

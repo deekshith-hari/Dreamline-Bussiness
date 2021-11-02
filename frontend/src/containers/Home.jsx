@@ -5,10 +5,16 @@ import Tesla from "../assets/img/Tesla_logo.png";
 import Img2 from "../assets/img/Mask Group 38.png";
 import Ibm from "../assets/img/2560px-IBM_logo.svg.png";
 import Img3 from "../assets/img/Mask Group 36.png";
+import Header from "../components/Common/Header";
+import { useDispatch } from "react-redux";
+import { push } from "connected-react-router";
 
 function Home() {
+  const key = localStorage.getItem("LOGIN_USER_KEY");
+  const dispatch = useDispatch();
   return (
     <div id="home">
+      <Header />
       <main class="main">
         <div class="flex-main">
           <div class="main-1">
@@ -22,9 +28,7 @@ function Home() {
               </p>
             </div>
             <div class="generate">
-              <a href="/generate" class="make-image">
-                Generate your background image
-              </a>
+              <a class="make-image">Generate your background image</a>
             </div>
           </div>
         </div>
@@ -86,10 +90,23 @@ function Home() {
             </div>
           </div>
           <div class="try-now">
-            <a href="/generate" class="make-image">
-              {" "}
-              TRY NOW{" "}
-            </a>
+            {key ? (
+              <span
+                onClick={() => dispatch(push("/generate"))}
+                class="make-image"
+              >
+                {" "}
+                TRY NOW{" "}
+              </span>
+            ) : (
+              <span
+                onClick={() => dispatch(push("/signin"))}
+                class="make-image"
+              >
+                {" "}
+                TRY NOW{" "}
+              </span>
+            )}
           </div>
         </div>
 

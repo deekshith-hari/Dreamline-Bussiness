@@ -53,7 +53,7 @@ export const signIn = (email, password) => {
       .then((user) => {
         dispatch(userSignInAction(user));
         localStorage.setItem(LOGIN_USER_KEY, JSON.stringify(user));
-        dispatch(push("/"));
+        dispatch(push("/generate"));
       })
       .catch((error) => {
         alert("Failed to sign in!");

@@ -106,7 +106,7 @@ export default class API {
     return newUser;
   };
 
-  //   /////////////////////////////////////////////////////////
+  // ///////////////////////////////////////////////////////////
   // Background Image
   // ///////////////////////////////////////////////////////////
 
@@ -142,7 +142,7 @@ export default class API {
       });
   };
 
-  getUserbackground = async () => {
+  getUserbackgrounds = async () => {
     return api
       .get("/user-backgrounds/")
       .then((response) => {
@@ -151,5 +151,16 @@ export default class API {
       .catch((error) => {
         throw new Error(error);
       });
+  };
+  getUserbackground = async (id) => {
+    const response = await api
+      .get("/user-backgrounds/images/" + id + "/")
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+    return response;
   };
 }

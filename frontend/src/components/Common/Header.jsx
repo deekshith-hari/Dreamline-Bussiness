@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { signOut } from "../../reducks/userAuth/operations";
+import { useDispatch } from "react-redux";
+import { push } from "connected-react-router";
 
 function Header() {
+  const key = localStorage.getItem("LOGIN_USER_KEY");
+  const dispatch = useDispatch();
+  const signOutButton = () => {
+    dispatch(signOut());
+    dispatch(push("/signin"));
+  };
+
   return (
     <header class="header">
       <nav class="flex-header">
@@ -13,15 +23,27 @@ function Header() {
           <div class="next">
             <a href="/generate">Next</a>
           </div>
-          <div class="signin">
-            <a href="/signin">Sign in</a>
-          </div>
-          <div class="signup">
-            <a href="/signup">Sign up</a>
-          </div>
-          <div class="mycard">
-            <a href="/userbackground">My card</a>
-          </div>
+          {key ? (
+            <span class="signup" onClick={signOutButton}>
+              Logout
+            </span>
+          ) : (
+            <span class="signin" onClick={() => dispatch(push("/signin"))}>
+              Sign in
+            </span>
+          )}
+          {key ? (
+            <span
+              class="mycard"
+              onClick={() => dispatch(push("/userbackground"))}
+            >
+              My card
+            </span>
+          ) : (
+            <span class="signup" onClick={() => dispatch(push("/signup"))}>
+              Sign up
+            </span>
+          )}
         </div>
       </nav>
     </header>

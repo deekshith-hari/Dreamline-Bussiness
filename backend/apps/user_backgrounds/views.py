@@ -146,3 +146,7 @@ class UserBackgroundList(CustomLoginRequiredMixin, generics.ListAPIView):
     def get(self, request, *args, **kwargs):
         self.queryset=UserBackground.objects.order_by('-created_at').filter(user=request.login_user)
         return self.list(request, *args, **kwargs)
+
+class UserBackgroundImage(generics.RetrieveAPIView):
+    queryset = UserBackground.objects.all()
+    serializer_class = UserBackgroundSerializer

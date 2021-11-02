@@ -1,20 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Common/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { getUimages } from "../reducks/userbackground/selectors";
 import { fetchUimages } from "../reducks/userbackground/operations";
+import Preview from "../components/Common/Preview";
 
 function YourBackground() {
   const selector = useSelector((state) => state);
   const dispatch = useDispatch();
   const uimages = getUimages(selector);
   const user = JSON.parse(localStorage.getItem("LOGIN_USER_KEY"));
+  const [showPreview, setShowPreview] = useState(false);
+  const [selectedImageId, setSelectedImageId] = useState(null);
+  const [image, setImage] = useState({});
+
   useEffect(() => {
     dispatch(fetchUimages(user.token));
-    console.log("test");
+    console.log("uimage");
     console.log(uimages);
+    console.log("user");
     console.log(user);
   }, []);
+
+  const clickImage = (imageId) => {
+    setSelectedImageId(imageId);
+    setShowPreview(true);
+  };
+
   return (
     <>
       <Header />
@@ -31,7 +43,12 @@ function YourBackground() {
                   <div class="card">
                     <img src={image.generated_background} alt=""></img>
                     <div class="link-panel">
-                      <a id="preview-btn">Preview | </a>
+                      <span
+                        id="preview-btn"
+                        onClick={() => clickImage(image.id)}
+                      >
+                        Preview |{" "}
+                      </span>
                       <button class="DL-btn">Download</button>
                     </div>
                   </div>
@@ -40,6 +57,12 @@ function YourBackground() {
           </main>
         </div>
       </div>
+      {showPreview && (
+        <Preview
+          setShowPreview={setShowPreview}
+          selectedImageId={selectedImageId}
+        />
+      )}
     </>
   );
 }
